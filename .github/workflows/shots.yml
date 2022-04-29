@@ -49,7 +49,7 @@ jobs:
     - name: Capture leaderboard data
       run: |
         SHOT_SCRAPER_OUTFILE=$(date +%Y-%m-%d_%T)
-        shot-scraper javascript https://www.strava.com/clubs/129636 -i download-strava-leaderboard.js -o $SHOT_SCRAPER_OUTFILE.json
+        shot-scraper javascript https://www.strava.com/clubs/129636 -i download-strava-leaderboard.js -o datasets/$SHOT_SCRAPER_OUTFILE.json
     - name: Commit and push
       run: |-
         git config user.name "Automated"
