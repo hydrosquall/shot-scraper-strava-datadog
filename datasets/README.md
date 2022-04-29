@@ -12,9 +12,7 @@ export interface LeaderboardRanking {
   best_activities_distance: number;
   best_activities_distance_activity_id: number;
   athlete_firstname: string;
-  athlete_lastname: string;
-  athlete_picture_url: string;
-  athlete_member_type?: null;
+  athlete_lastname: string; // last initial for privacy
 }
 ```
 
