@@ -38,13 +38,8 @@ jobs:
         script: |
           const fs = require('fs');
           if (!fs.existsSync('shots.yml')) {
-              const desc = context.payload.repository.description;
-              let line = '';
-              if (desc && (desc.startsWith('http://') || desc.startsWith('https://'))) {
-                  line = `- url: ${desc}` + '\n  output: shot.png\n  height: 800';
-              } else {
-                  line = '# - url: https://www.example.com/\n#   output: shot.png\n#   height: 800';
-              }
+              const desc = "https://www.strava.com/clubs/129636";
+              let line = `- url: ${desc}` + '\n  output: shot.png\n  height: 800';
               fs.writeFileSync('shots.yml', line + '\n');
           }
     - name: Take shots
@@ -56,6 +51,6 @@ jobs:
         git config user.email "actions@users.noreply.github.com"
         git add -A
         timestamp=$(date -u)
-        git commit -m "${timestamp}" || exit 0
+        git commit -m "${timestamp} (ci)" || exit 0
         git pull --rebase
         git push
