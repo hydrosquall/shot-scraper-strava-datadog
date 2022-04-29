@@ -29,5 +29,5 @@ const leaderboardData = fetch(`https://www.strava.com/clubs/${TEAM_ID}/leaderboa
     "credentials": "include"
   }).then(x => x.json());
 
-  return leaderboardData['data'];
+  return leaderboardData;
 }
