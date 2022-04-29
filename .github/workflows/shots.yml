@@ -1,15 +1,11 @@
 name: Take screenshots
 
 on:
-  push:
-    branches:
-      # Only rerun on main, feature branches will need to figure out their own
-      - 'main'
   workflow_dispatch:
   # Rerun Sunday evenings
   # https://crontab.guru/#0_22_*_*_0
   schedule:
-    - cron: "0 22 * * 0"
+    - cron: "0 23 * * 0"
 
 permissions:
   contents: write
