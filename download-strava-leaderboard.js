@@ -19,7 +19,7 @@ async () => {
   // We can import NPM modules if needed in future.
   // const readability = await import('https://cdn.skypack.dev/@mozilla/readability');
 
-const leaderboardData = fetch(`https://www.strava.com/clubs/${TEAM_ID}/leaderboard`, {
+const leaderboardData = await fetch(`https://www.strava.com/clubs/${TEAM_ID}/leaderboard`, {
     "headers": headers,
     "referrer": `https://www.strava.com/clubs/${TEAM_ID}`,
     "referrerPolicy": "strict-origin-when-cross-origin",
@@ -29,5 +29,5 @@ const leaderboardData = fetch(`https://www.strava.com/clubs/${TEAM_ID}/leaderboa
     "credentials": "include"
   }).then(x => x.json());
 
-  return leaderboardData;
+  return leaderboardData['data'];
 }
