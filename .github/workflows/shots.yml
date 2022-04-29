@@ -2,6 +2,9 @@ name: Take screenshots
 
 on:
   push:
+    branches:
+      # Only rerun on main, feature branches will need to figure out their own
+      - 'main'
   workflow_dispatch:
   # Rerun Sunday evenings
   # https://crontab.guru/#0_22_*_*_0
@@ -45,11 +48,4 @@ jobs:
         SHOT_SCRAPER_OUTFILE=$(date +%F_%T)
         shot-scraper javascript https://www.strava.com/clubs/129636 -i download-strava-leaderboard.js -o datasets/$SHOT_SCRAPER_OUTFILE.json
     - name: Commit and push
-      run: |-
-        git config user.name "Automated"
-        git config user.email "actions@users.noreply.github.com"
-        git add -A
-        timestamp=$(date -u)
-        git commit -m "${timestamp} (ci)" || exit 0
-        git pull --rebase
-        git push
+      run: ./scripts/commit-and-push.sh
