@@ -1,4 +1,4 @@
-name: Take screenshots
+name: Downloader leaderboard rankings
 
 on:
   workflow_dispatch:
