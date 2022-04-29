@@ -3,7 +3,11 @@ name: Take screenshots
 on:
   push:
   workflow_dispatch:
-  
+  # Rerun Sunday evenings
+  # https://crontab.guru/#0_22_*_*_0
+  schedule:
+    - cron: "0 22 * * 0"
+
 permissions:
   contents: write
 
@@ -29,25 +33,17 @@ jobs:
       with:
         path: ~/.cache/ms-playwright/
         key: ${{ runner.os }}-browsers
-    - name: Install dependencies
+    - name: Install Python dependencies
       run: |
         pip install -r requirements.txt
     - name: Install Playwright dependencies
       run: |
         shot-scraper install
-    - uses: actions/github-script@v6
-      name: Create shots.yml if missing on first run
-      with:
-        script: |
-          const fs = require('fs');
-          if (!fs.existsSync('shots.yml')) {
-              const desc = "https://www.strava.com/clubs/129636";
-              let line = `- url: ${desc}` + '\n  output: shot.png\n  height: 800';
-              fs.writeFileSync('shots.yml', line + '\n');
-          }
-    - name: Take shots
+    # https://www.shell-tips.com/linux/how-to-format-date-and-time-in-linux-macos-and-bash/#gsc.tab=0
+    - name: Capture leaderboard data
       run: |
-        shot-scraper multi shots.yml
+        SHOT_SCRAPER_OUTFILE=$(date +%F_%T)
+        shot-scraper javascript https://www.strava.com/clubs/129636 -i download-strava-leaderboard.js -o datasets/$SHOT_SCRAPER_OUTFILE.json
     - name: Commit and push
       run: |-
         git config user.name "Automated"
