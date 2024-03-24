@@ -1,0 +1,15 @@
+[
+    {
+        "rank": 1,
+        "athlete_id": 53703000,
+        "velocity": 2.3551890599906318,
+        "elev_gain": 14,
+        "num_activities": 1,
+        "moving_time": 1401,
+        "distance": 3299.619873046875,
+        "best_activities_distance": 3299.619873046875,
+        "best_activities_distance_activity_id": 11031615857,
+        "athlete_firstname": "Harry",
+        "athlete_lastname": "C."
+    }
+]
