@@ -1,0 +1,15 @@
+[
+    {
+        "rank": 1,
+        "athlete_id": 68169358,
+        "velocity": 1.9411351508015304,
+        "elev_gain": 78.59999084472656,
+        "num_activities": 1,
+        "moving_time": 2581,
+        "distance": 5010.06982421875,
+        "best_activities_distance": 5010.06982421875,
+        "best_activities_distance_activity_id": 11669346977,
+        "athlete_firstname": "Kisung",
+        "athlete_lastname": "Y."
+    }
+]
