@@ -1,0 +1,15 @@
+[
+    {
+        "rank": 1,
+        "athlete_id": 7753579,
+        "velocity": 3.124648067571026,
+        "elev_gain": 236,
+        "num_activities": 1,
+        "moving_time": 3907,
+        "distance": 12208,
+        "best_activities_distance": 12208,
+        "best_activities_distance_activity_id": 11833658507,
+        "athlete_firstname": "Kyouhei",
+        "athlete_lastname": "O."
+    }
+]
